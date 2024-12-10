@@ -1,25 +1,17 @@
 class Solution {
-    public int[] findErrorNums(int[] nums) {
-        int[] arr = {1,1}; // for output
-        int n = nums.length;
-
-        //solving using HashMap
-
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int i = 0; i< n ;i++){
-            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
-        }
-        
-        for(int i = 1; i< n+1 ;i++){
-            if(map.containsKey(i)){
-                if (map.get(i) == 2){
-                    arr[0] = i;
-                }
-            }
-            else{ // element is missing
-                arr[1] = i;
-            }
-        }
-        return arr;
+  public int[] findErrorNums(int[] nums) {
+    int n = nums.length;
+    int[] result = new int[2];
+    int[] frequency = new int[n + 1];
+    for (int num : nums)
+    {
+      frequency[num]++;
     }
+    for (int i = 1; i <= n; i++)
+    {
+      if (frequency[i] == 2) result[0] = i;
+      else if (frequency[i] == 0) result[1] = i;
+    }
+    return result;
+  }
 }
