@@ -3,7 +3,7 @@ class Solution {
     return increasingBST(root, null);
   }
 
-  public TreeNode increasingBST(TreeNode root, TreeNode tail) {
+  private TreeNode increasingBST(TreeNode root, TreeNode tail) {
     if (root == null) return tail;
     TreeNode result = increasingBST(root.left, root);
     root.left = null;
