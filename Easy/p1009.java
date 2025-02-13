@@ -1,10 +1,10 @@
 class Solution {
   public int bitwiseComplement(int n) {
-    int musk = 1;
-    while (musk < n) 
+    int mask = 1;
+    while (mask < n) 
     {
-      musk = (musk << 1) | 1;
+      mask = (mask << 1) | 1;
     }
-    return musk ^ n;
+    return mask ^ n;
   }
 }
